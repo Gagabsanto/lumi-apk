@@ -6,7 +6,7 @@ confirmação do próprio Android.
 
 - Pacote Android: `com.gagabsanto.lumi` (não muda nunca)
 - Fase atual: **1 – núcleo** (sem inteligência artificial; a única coisa que usa internet é a consulta de versão nova, ver 1.12.0)
-- Versão deste pacote: **1.13.0** (código 25)
+- Versão deste pacote: **1.16.2** (código 37)
 - Compilação: GitHub Actions, workflow único `.github/workflows/lumi-build.yml`
 
 ## O que o app faz hoje
@@ -24,6 +24,25 @@ confirmação do próprio Android.
   - **Barra de rolagem rápida:** arraste a barrinha na lateral direita; aparece o mês e o ano.
   - **Versão nos Ajustes:** em Sobre, mostra a versão e o código instalados.
   - **Desempenho:** leitura da galeria em formato compacto, linhas e células da lista reaproveitadas ao rolar e APK menor (R8). A redução do APK (R8) vem desligada na 1.9.1; para ligar, ponha `minificar=true` em `version.properties`; se a compilação reduzida falhar, o workflow tenta de novo sozinho sem reduzir.
+- **Novidades da 1.16.2:** o nome da marca passou a ser escrito "sttobii apps" (rodapé de Ajustes).
+- **Novidades da 1.16.1:** a pílula do topo do visualizador mostra a data e a hora da foto (ex.: "17 de outubro · 22:30") no lugar do contador "1 / 2976".
+- **Novidades da 1.16.0:** visualizador redesenhado. Em cima ficam só o botão de voltar e o contador de fotos; as ações (favoritar, editar, detalhes, compartilhar e excluir) ficam numa barra arredondada embaixo. Nos vídeos, os controles foram reduzidos a reproduzir/pausar, barra de progresso com tempos e som; saíram repetição, velocidade, ±10 s e girar a tela.
+- **Novidades da 1.15.4:** transição do zoom da grade refeita: ao soltar os dedos, cada foto desliza e se ajusta do tamanho em que estava até o novo lugar (em vez de a grade trocar de uma vez); fotos que entram na tela aparecem com um fade.
+- **Novidades da 1.15.3:** o zoom da grade agora vai de 3 a 6 fotos por linha (o mínimo deixou de ser 2).
+- **Novidades da 1.15.2:** a barra de rolagem rápida (lado direito da tela) ficou fina e discreta, no estilo da galeria do Samsung: uma alça estreita e um rótulo menor com o mês durante o arraste.
+- **Novidades da 1.15.1:** com 5 ou 6 colunas (os dois níveis mais afastados do zoom) a grade agrupa por mês ("Outubro", "Setembro de 2025") em vez de por dia. Tocar no título do mês seleciona o mês inteiro.
+- **Novidades da 1.15.0:**
+  - **Zoom da grade:** a grade agora acompanha os dedos em tempo real, com animação, e ao soltar se ajusta ao número de colunas mais próximo. A primeira linha visível fica parada no topo; as fotos de cima não saem da tela.
+  - **Ajustes:** removido o item *Diagnóstico*. O rodapé passou a mostrar o nome da empresa (sttobii apps).
+  - **Textos:** revisão geral das mensagens, títulos e descrições do app para um tom mais direto e consistente.
+- **Novidades da 1.14.2:** a versão instalada aparece como última linha da tela de Ajustes ("Versão 1.14.2").
+- **Novidades da 1.14.1:** saiu de Ajustes a opção *Fotos por linha*; o tamanho da grade agora só muda com o zoom de dois dedos.
+- **Novidades da 1.14.0:**
+  - **Zoom da grade com dois dedos:** afastar os dedos deixa as fotos maiores (até 2 por linha) e juntar deixa menores (até 6). A foto entre os dedos fica no lugar. O tamanho fica guardado.
+  - **Ajustes mais enxutos:** saíram *Atualizar sozinho* (agora é sempre automático), *Acesso às fotos*, *Ler a galeria de novo* (puxar a tela já faz isso), *Ver a tela de atualização*, *Leitura compacta* e o cartão da versão. A leitura compacta ficou sempre ligada, com volta automática ao formato normal (lembrada) se falhar. A versão continua no Diagnóstico.
+- **Novidades da 1.13.1:**
+  - **Publicação em duas etapas:** a compilação (automática ao editar `version.properties`) agora só gera o APK e o coloca nas Releases do repositório *privado*; ele NÃO vai mais sozinho para o público. Instale esse APK e teste. Quando estiver bom, rode Actions > Lumi - Compilar APK > Run workflow > **publicar**, que copia o mesmo APK para o repositório público e só então os aparelhos recebem a atualização obrigatória.
+  - **Prévia da tela de atualização:** Ajustes > Atualização do Lumi > *Ver a tela de atualização* mostra como ela fica, sem baixar nem instalar nada.
 - **Novidades da 1.13.0:**
   - **Editor de fotos:** no visualizador, o botão de lápis abre o editor com *Cortar* (livre, original, 1:1, 4:3, 3:4, 16:9, 9:16), *Girar* (90° e espelhar), *Ajustar* (brilho, contraste, saturação) e *Filtros* (P&B, Vívido, Quente, Frio, Sépia, Fosco). *Salvar cópia* grava um JPEG novo em `Pictures/Lumi` (com a data original da foto); a foto original nunca é alterada. O lado maior da cópia é limitado a 4096 px.
   - **Textos de Ajustes mais claros:** em Sobre agora aparece a quantidade de itens e o tipo de acesso às fotos (o detalhe técnico continua no Diagnóstico); o rodapé e o grupo *Contato* foram reescritos.
