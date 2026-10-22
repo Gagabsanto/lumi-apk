@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0d0f">
+<title>Lumi · Galeria de fotos e vídeos para Android</title>
+<meta name="description" content="O Lumi organiza as fotos e vídeos do seu celular. Sem conta, sem anúncios e sem enviar nada para a internet.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 108 108'%3E%3Crect width='108' height='108' rx='26' fill='%230c0d0f'/%3E%3Ccircle cx='54' cy='54' r='24' fill='%23ffcf6b'/%3E%3Ccircle cx='54' cy='54' r='15' fill='%230c0d0f'/%3E%3Ccircle cx='54' cy='54' r='7' fill='%23ffcf6b'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0c0d0f;--s1:#15140f;--tx:#f5f1e9;--mut:#a8a296;--ac:#ffcf6b;--acx:#2b1d00;--ln:#2a2619}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;min-height:100vh;color:var(--tx);font:400 1rem/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:radial-gradient(ellipse 80% 420px at 50% 0,rgba(255,207,107,.16),transparent 70%),var(--bg);-webkit-text-size-adjust:100%}
+main{max-width:34rem;margin:0 auto;padding:max(2.5rem,env(safe-area-inset-top)) 1.5rem 3rem}
+.hero{text-align:center;padding:1rem 0 2.25rem}
+.hero svg{width:7rem;height:7rem;border-radius:1.8rem;filter:drop-shadow(0 0 2.2rem rgba(255,207,107,.35))}
+h1{margin:1.25rem 0 .25rem;font-size:3.25rem;line-height:1;font-weight:800;letter-spacing:-.03em}
+.sub{margin:0;color:var(--mut);font-size:1.05rem}
+.btn{display:block;margin:2rem auto 0;max-width:22rem;padding:1.15rem 1.5rem;border-radius:1.1rem;background:var(--ac);color:var(--acx);font-size:1.2rem;font-weight:800;text-align:center;text-decoration:none;transition:transform .12s,filter .12s}
+.btn:active{transform:scale(.98);filter:brightness(.94)}
+.btn:focus-visible,a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+#info{margin:.7rem 0 0;color:var(--mut);font-size:.9rem}
+h2{margin:0 0 1rem;font-size:1.25rem;letter-spacing:-.01em}
+section{padding:1.75rem 0;border-top:1px solid var(--ln)}
+ol{margin:0;padding:0;list-style:none;counter-reset:p}
+li{position:relative;margin:0 0 1rem;padding-left:2.6rem;counter-increment:p}
+li::before{content:counter(p);position:absolute;left:0;top:.05rem;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--s1);border:1px solid var(--ln);color:var(--ac);font-weight:700;font-size:.9rem;line-height:1.7rem;text-align:center}
+.nota{margin:1.25rem 0 0;padding:1rem 1.1rem;border-radius:.9rem;background:var(--s1);color:var(--mut);font-size:.95rem}
+p{margin:0 0 .8rem}
+a{color:var(--ac)}
+footer{padding-top:1.75rem;border-top:1px solid var(--ln);color:var(--mut);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <svg viewBox="0 0 108 108" role="img" aria-label="Ícone do Lumi"><rect width="108" height="108" rx="26" fill="#0c0d0f" stroke="rgba(255,207,107,.2)"/><circle cx="54" cy="54" r="24" fill="#ffcf6b"/><circle cx="54" cy="54" r="15" fill="#0c0d0f"/><circle cx="54" cy="54" r="7" fill="#ffcf6b"/></svg>
+    <h1>Lumi</h1>
+    <p class="sub">Galeria de fotos e vídeos para Android</p>
+    <a id="baixar" class="btn" href="https://github.com/Gagabsanto/lumi-apk/releases/latest">Baixar o Lumi</a>
+    <p id="info">Última versão disponível no GitHub</p>
+  </header>
+
+  <section>
+    <h2>Como instalar</h2>
+    <ol>
+      <li>Toque em <strong>Baixar o Lumi</strong> e abra o arquivo quando o download terminar.</li>
+      <li>Se o Android avisar sobre apps desconhecidos, toque em <strong>Configurações</strong> e ative <strong>Permitir desta fonte</strong> para o navegador que você usou.</li>
+      <li>Toque em <strong>Instalar</strong> e, depois, em <strong>Abrir</strong>.</li>
+      <li>Permita o acesso a fotos e vídeos. É por ele que o Lumi mostra a sua galeria.</li>
+    </ol>
+    <p class="nota">Se o Play Protect mostrar um aviso de app não reconhecido, toque em <strong>Mais detalhes</strong> e depois em <strong>Instalar mesmo assim</strong>. As próximas versões são avisadas dentro do próprio Lumi.</p>
+  </section>
+
+  <section>
+    <h2>Privacidade</h2>
+    <p>Suas fotos e vídeos permanecem no seu aparelho. O Lumi não tem conta, anúncios nem rastreamento, e usa a internet apenas para verificar se existe uma versão nova.</p>
+    <p><a href="privacidade.html">Ler a política de privacidade</a></p>
+  </section>
+
+  <footer>
+    sttobii apps · <a href="mailto:sttobii.apps@gmail.com">sttobii.apps@gmail.com</a>
+  </footer>
+</main>
+<script>
+(function () {
+  var b = document.getElementById('baixar'), m = document.getElementById('info');
+  fetch('https://api.github.com/repos/Gagabsanto/lumi-apk/releases/latest')
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function (j) {
+      var a = (j.assets || []).filter(function (x) { return /\.apk$/i.test(x.name || ''); })[0];
+      if (!a) return;
+      b.href = a.browser_download_url;
+      m.textContent = 'Versão ' + String(j.tag_name || '').replace(/^v/, '') + ' · ' + (a.size / 1048576).toFixed(1).replace('.', ',') + ' MB';
+    })
+    .catch(function () { /* mantém o link para a página de versões */ });
+})();
+</script>
+</body>
+</html>
