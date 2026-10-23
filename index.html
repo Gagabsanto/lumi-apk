@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <meta name="theme-color" content="#0c0d0f">
 <title>Lumi · Galeria de fotos e vídeos para Android</title>
 <meta name="description" content="O Lumi organiza as fotos e vídeos do seu celular. Sem conta, sem anúncios e sem enviar nada para a internet.">
@@ -65,16 +66,23 @@ footer{padding-top:1.75rem;border-top:1px solid var(--ln);color:var(--mut);font-
 </main>
 <script>
 (function () {
-  var b = document.getElementById('baixar'), m = document.getElementById('info');
-  fetch('https://api.github.com/repos/Gagabsanto/lumi-apk/releases/latest')
-    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-    .then(function (j) {
-      var a = (j.assets || []).filter(function (x) { return /\.apk$/i.test(x.name || ''); })[0];
-      if (!a) return;
-      b.href = a.browser_download_url;
-      m.textContent = 'Versão ' + String(j.tag_name || '').replace(/^v/, '') + ' · ' + (a.size / 1048576).toFixed(1).replace('.', ',') + ' MB';
-    })
-    .catch(function () { /* mantém o link para a página de versões */ });
+  var b = document.getElementById('baixar'), m = document.getElementById('info'), ult = 0;
+  function carrega() {
+    ult = Date.now();
+    fetch('https://api.github.com/repos/Gagabsanto/lumi-apk/releases/latest', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (j) {
+        var a = (j.assets || []).filter(function (x) { return /\.apk$/i.test(x.name || ''); })[0];
+        if (!a) return;
+        b.href = a.browser_download_url;
+        m.textContent = 'Versão ' + String(j.tag_name || '').replace(/^v/, '') + ' · ' + (a.size / 1048576).toFixed(1).replace('.', ',') + ' MB';
+      })
+      .catch(function () { /* mantém o link para a página de versões */ });
+  }
+  carrega();
+  /* ao voltar para esta aba/página já aberta, busca de novo a versão mais recente */
+  document.addEventListener('visibilitychange', function () { if (!document.hidden && Date.now() - ult > 3000) carrega(); });
+  window.addEventListener('pageshow', function (e) { if (e.persisted) carrega(); });
 })();
 </script>
 </body>
